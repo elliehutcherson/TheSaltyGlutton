@@ -1,0 +1,9 @@
+﻿
+.ut-hide {
+    display: none;
+}
+
+.ut-collapse-horizontal {
+    -webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+    transition: width 1s;
+}
