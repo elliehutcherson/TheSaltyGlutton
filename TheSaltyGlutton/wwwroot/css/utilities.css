@@ -1,6 +1,6 @@
 ﻿
-.ut-hide {
-    display: none;
+#salty-search.ut-collapse-horizontal-hide {
+    width: 0;
 }
 
 .ut-collapse-horizontal {

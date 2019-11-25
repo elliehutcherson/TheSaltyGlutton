@@ -1,84 +1,41 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
+﻿
 @media (min-width: 768px) {
     html {
         font-size: 16px;
     }
-
-    .navbar-brand.salty-logo {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        text-align: center;
-    }
-
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+  font-size: 14px;
 }
 
 body {
-  /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+.salty-navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#salty-search {
+    width: 20rem;
+    overflow: hidden;
+}
+
+.salty-search-container {
+    width: 20rem;
+}
+
+.salty-logo-container {
+    width: 100rem;
+    text-align: center;
 }
 
 .salty-logo {
+    color: whitesmoke;
     padding-top: 0;
     padding-bottom: 0;
     font-size: 2.6rem;
@@ -87,6 +44,13 @@ body {
     text-shadow: 0.06rem 0.06rem #888;
 }
 
-.salty-navitem {
+.salty-logo:hover {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.salty-navbar nav {
     font-family: 'Lora', georgia, serif;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
