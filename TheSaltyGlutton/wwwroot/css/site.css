@@ -20,17 +20,21 @@ body {
     padding-right: 2rem;
 }
 
+.salty-icon {
+    font-size: 1.7em;
+}
+
 #salty-search {
-    width: 20rem;
+    width: 100%;
     overflow: hidden;
 }
 
 .salty-search-container {
-    width: 20rem;
+    width: 100%;
+    min-width: 10rem;
 }
 
 .salty-logo-container {
-    width: 100rem;
     text-align: center;
 }
 
@@ -42,6 +46,7 @@ body {
     font-variant: small-caps;
     font-family: Times, Times New Roman, serif;
     text-shadow: 0.06rem 0.06rem #888;
+    white-space: nowrap;
 }
 
 .salty-logo:hover {

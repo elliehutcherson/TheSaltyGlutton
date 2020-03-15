@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Test";
+}
+
+<h1>Test</h1>
+<input id="search_restaurant"/>
+
+@section Scripts{
+<script>
+    function activateSearch() {
+        var input = $('#search_restaurant').get(0);
+        var autoComplete = new google.maps.places.Autocomplete(input);
+        console.log(autoComplete);
+    }
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyOet9RNNrEKmcEh_2LIABO8SWQEnN-Vk&libraries=places&callback=activateSearch"></script>
+}

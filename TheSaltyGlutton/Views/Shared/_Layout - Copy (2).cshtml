@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TheSaltyGlutton</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+    <link rel="stylesheet" href="~/css/utilities.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="salty-navbar navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0" id="salt-nav-left">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <i class="fas fa-bars fa-lg text-white p-2"></i>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-search fa-lg text-white p-2" data-toggle="ut-collapse-horizontal" data-target="salty-search"></i>
+                    </li>
+                    <li class="nav-item">
+                        <div id="salty-search" class="ut-collapse-horizontal">
+                            <div class="salty-search-container">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search" />
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="salty-logo-container mx-auto order-0">
+                <a class="salty-logo mx-auto" asp-area="" asp-controller="Home" asp-action="Index">The Salty Glutton</a>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3" id="salty-nav-right">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-secondary btn-outline-light" asp-area="" asp-controller="Home" asp-action="Index">Reviewer Portal</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/utilities.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
