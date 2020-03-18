@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,19 +9,15 @@ using System.Threading.Tasks;
 
 namespace TheSaltyGlutton.Models
 {
-    [Table("Cities")]
     public class City
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [BsonId]
         public int Id { get; set; } 
 
-        [Column("Name", TypeName = "varchar(100)")]
         public string Name { get; set; }
+        
+        public int CountryId { get; set; }
 
-        [ForeignKey("State")]
-        public int StateId { get; set; }
-
-        public virtual State State { get; set; }
+        public int? StateId { get; set; }
     }
 }

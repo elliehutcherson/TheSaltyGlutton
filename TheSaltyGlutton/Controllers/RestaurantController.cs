@@ -4,15 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
+using TheSaltyGlutton.Models;
 
 namespace TheSaltyGlutton.Controllers
 {
     public class RestaurantController : Controller
     {
-        public ActionResult Index() =>
-            View();
+        private readonly SaltyContext db;
 
-        public ActionResult Details(int id)
+        public RestaurantController(ISaltyDatabaseSettings settings)
+        {
+            db = new SaltyContext(settings);
+        }
+
+        public ActionResult Index()
+        {
+            var values = db.Restaurants.Find(_ => true).ToList();
+            return View(values);
+        }
+
+        public ActionResult Details(string id)
         {
             return View();
         }
@@ -81,5 +93,14 @@ namespace TheSaltyGlutton.Controllers
                 return View();
             }
         }
+
+        #region Helpers
+        private void OptionLists()
+        {
+                // TODO: Add optionlist logic here
+        }
+
+
+        #endregion
     }
 }

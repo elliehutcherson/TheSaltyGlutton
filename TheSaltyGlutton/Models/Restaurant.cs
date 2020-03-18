@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -8,12 +10,15 @@ using System.Threading.Tasks;
 
 namespace TheSaltyGlutton.Models
 {
-    [Table("Restaurants")]
     public class Restaurant
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public Restaurant()
+        {
+            CreateWhen = DateTime.Now;
+        }
+
+        [BsonId]
+        public string Id { get; set; }
 
         [DisplayName("Restaurant")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Restaurants must have a name")]
@@ -28,22 +33,15 @@ namespace TheSaltyGlutton.Models
         [Url(ErrorMessage = "The submitted url was not valid")]
         public string Website { get; set; }
 
-        [ForeignKey("Country")]
         [Required(ErrorMessage = "Restaurants must have a country")]
         public int CountryId { get; set; }
 
-        [ForeignKey("State")]
-        public Nullable<int> StateId { get; set; }
+        public int? StateId { get; set; }
 
-        [ForeignKey("City")]
         [Required(ErrorMessage = "Restaurant must have a city")]
         public int CityId { get; set; }
 
-
-
-        public virtual City City { get; set; } 
-        public virtual State State { get; set; }
-        public virtual Country Country { get; set; }
-
+        [DisplayName("Creation Date")]
+        public DateTime CreateWhen { get; set; }
     }
 }

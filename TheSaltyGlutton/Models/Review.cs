@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -15,16 +17,15 @@ namespace TheSaltyGlutton.Models
             this.CreateWhen = DateTime.Now;
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        [BsonId]
+        public string Id { get; set; }
 
         [MinLength(length: 10, ErrorMessage = "Title must be longer than 10 characters")]
         [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Review must have a restaurant")]
-        public string RestaurantName { get; set; }
+        public string RestaurantId { get; set; }
 
         [Range(0, 5, ErrorMessage = "Rating must be between 0 and 5")]
         [Required(ErrorMessage = "Review must have a rating")]
@@ -34,13 +35,9 @@ namespace TheSaltyGlutton.Models
         [Required(ErrorMessage = "Review must have a body")]
         public string Body { get; set; }
 
-        [ForeignKey("Thumbnail")]
-        public int ThumbnailId { get; set; }
+        public List<ReviewPicture> ReviewPictures { get; set; }
 
         [DisplayName("Published")]
         public DateTime CreateWhen { get; set; }
-
-        public virtual ReviewPicture Thumbnail { get; set; }
-        public virtual ICollection<ReviewPicture> ReviewPictures { get; set; }
     }
 }

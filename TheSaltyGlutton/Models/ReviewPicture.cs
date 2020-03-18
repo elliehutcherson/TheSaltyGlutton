@@ -14,10 +14,6 @@ namespace TheSaltyGlutton.Models
             this.CreateWhen = DateTime.Now;
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         [MaxLength(length: 100, ErrorMessage = "Review picture caption may not exceed 100 characters")]
         public string Caption { get; set; }
 
